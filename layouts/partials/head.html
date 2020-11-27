@@ -25,10 +25,19 @@
 
 {{ if .Site.Params.prismJS.enable }}
     {{ if .Site.Params.prismJS.theme }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism-{{ .Site.Params.prismJS.theme }}.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism-{{ .Site.Params.prismJS.theme }}.min.css" >
     {{ else }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css">
     {{ end }}
+{{ end }}
+
+{{ if .Site.Params.mermaidJS.enable }}
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+    window.onload = function() {
+        mermaid.init(undefined, ".language-mermaid");
+    };
+</script>
 {{ end }}
 
 {{ with index .Site.Data "chunky-poster" }}
