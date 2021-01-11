@@ -23,14 +23,13 @@
             <div class="col-lg-6 mb-3">
                 {{- with $page.Params.images -}}
                     {{- $images := . -}}
-                    {{- with $page.Site.GetPage "section" "images" -}}
-                        {{- with .Resources.GetMatch (strings.TrimPrefix "/images/" (index $images 0)) -}}
+
+                        {{- with $page.Resources.GetMatch (index $images 0) -}}
                             {{- $image := .Fill "700x450" -}}
                             <a href="{{ $page.RelPermalink }}" class="d-block">
                                 <img data-src="{{ $image.RelPermalink }}" class="img-fluid rounded" alt="{{ $page.Title }}">
                             </a>
                         {{- end -}}
-                    {{- end -}}
                 {{- end -}}
             </div>
             <div class="col-lg-6 mb-3">
